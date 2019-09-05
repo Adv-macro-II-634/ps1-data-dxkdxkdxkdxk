@@ -117,7 +117,7 @@ min(findmean$b)    # incomes
 
 t1 = data.frame(y$earning,y$income,y$data.NETWORTH,y$data.WGT)
 t1 = t1[order(t1$y.data.NETWORTH),]
-t1$a = t$y.data.WGT/sum(t$y.data.WGT)
+t1$a = t1$y.data.WGT/sum(t1$y.data.WGT)
 t1$b = cumsum(t1$a)
 findmean = t1 %>% filter(y.data.NETWORTH >= w.mean(t1$y.data.NETWORTH,t1$y.data.WGT))
 min(findmean$b)    # earnings
