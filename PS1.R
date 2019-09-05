@@ -24,7 +24,7 @@ e_quantiles = data.frame(wtd.quantile(y$earining/1000,
                                   c(0,0.01,0.05,0.1,0.2,0.4,0.6,0.8,0.9,0.95,0.99,1),
                                   weight = y$data.WGT))
 names(e_quantiles)[1] = "quantiles"
-e_quantiles$quantiles = round(e_quantiles$quantiles,digits=2) ### earings quantile table 1
+e_quantiles$quantiles = round(e_quantiles$quantiles,digits=1) ### earings quantile table 1
 xtable(t(e_quantiles))
 
 # constructing income
@@ -34,7 +34,7 @@ inc_quantiles = data.frame(wtd.quantile(y$income/1000,
                                       c(0,0.01,0.05,0.1,0.2,0.4,0.6,0.8,0.9,0.95,0.99,1),
                                       weight = y$data.WGT))
 names(inc_quantiles)[1] = "quantiles"
-inc_quantiles$quantiles = round(inc_quantiles$quantiles,digits=2) ### income quantile table 1
+inc_quantiles$quantiles = round(inc_quantiles$quantiles,digits=1) ### income quantile table 1
 xtable(t(inc_quantiles))
 
 ## wealth
@@ -42,7 +42,7 @@ w_quantiles = data.frame(wtd.quantile(y$data.NETWORTH/1000,
                                       c(0,0.01,0.05,0.1,0.2,0.4,0.6,0.8,0.9,0.95,0.99,1),
                                       weight = y$data.WGT))
 names(w_quantiles)[1] = "quantiles"
-w_quantiles$quantiles = round(w_quantiles$quantiles,digits=2) ### wealth quantile table 1
+w_quantiles$quantiles = round(w_quantiles$quantiles,digits=1) ### wealth quantile table 1
 xtable(t(w_quantiles))
 
 
