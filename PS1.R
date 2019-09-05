@@ -12,6 +12,9 @@ install.packages("ineq")
 library(ineq)
 install.packages('REAT')
 library(REAT)
+library(dplyr)
+
+################################### Build Data #########################################
 
 y = data.frame(data$YY1,data$Y1,data$WGT,data$WAGEINC,
       data$INCOME,data$INCCAT,data$BUSSEFARMINC,data$INTDIVINC,
@@ -20,7 +23,9 @@ y = data.frame(data$YY1,data$Y1,data$WGT,data$WAGEINC,
 
 y[,4:12] = y[,4:12]*0.88  # converting 2016 USD to 2007 USD
 
-## quantiles
+###################################      Analysis      #########################################
+
+######################################## quantiles
 
 # constructing earnings
 y$earning = y$data.WAGEINC + 0.863*y$data.BUSSEFARMINC 
@@ -52,20 +57,32 @@ xtable(t(w_quantiles))
 
 
 
-## Coefficient of Variation 
+#################################### Coefficient of Variation 
+
 round(w.cv(y$earning,y$data.WGT),digits = 2) #earning
 round(w.cv(y$income,y$data.WGT),digits = 2) #income
 round(w.cv(y$data.NETWORTH,y$data.WGT),digits = 2) #wealth
 
-## Variance of the logs
-round(w.var(lg,y$data.WGT),digits = 2)
+###################################### Variance of the logs
+y = data.frame(log(t1$y.earning),t1$y.data.WGT)
+y = y[!(is.na(y$log.t1.y.earning.)) & !(is.infinite(y$log.t1.y.earning.)),]
+w.var(y$log.t1.y.earning.,y$t1.y.data.WGT) ## earnings
 
-## Gini index
+y = data.frame(log(t1$y.income),t1$y.data.WGT)
+y = y[!(is.na(y$log.t1.y.income.)) & !(is.infinite(y$log.t1.y.income.)),]
+w.var(y$log.t1.y.income.,y$t1.y.data.WGT) ## incomes
+
+y = data.frame(log(t1$y.data.NETWORTH),t1$y.data.WGT)
+y = y[!(is.na(y$log.t1.y.data.NETWORTH.)) & !(is.infinite(y$log.t1.y.data.NETWORTH.)),]
+w.var(y$log.t1.y.data.NETWORTH.,y$t1.y.data.WGT) ## wealth
+
+
+########################################### Gini index
 weighted.gini(y$earning,y$data.WGT)
 weighted.gini(y$income,y$data.WGT)
 weighted.gini(y$data.NETWORTH,y$data.WGT)
 
-## top 1%/ lowest 40%
+##3#################################### top 1%/ lowest 40%
 t = data.frame(y$earning,y$income,y$data.NETWORTH,y$data.WGT)
 t1 = t[order(t$y.earning),]
 t1$a = t1$y.data.WGT/sum(t1$y.data.WGT)
@@ -83,13 +100,29 @@ t3$b = cumsum(t3$a)
 sum(t3$y.data.NETWORTH[t3$b>=0.99])/sum(t3$y.data.NETWORTH[t3$b<=0.4])  # income
 
 
+##################################### Location of mean
+t1 = data.frame(y$earning,y$income,y$data.NETWORTH,y$data.WGT)
+t1 = t1[order(t1$y.earning),]
+t1$a = t1$y.data.WGT/sum(t1$y.data.WGT)
+t1$b = cumsum(t1$a)
+findmean = t1 %>% filter(y.earning >= w.mean(t1$y.earning,t1$y.data.WGT))
+min(findmean$b)    # earnings
 
-## Location of mean
-mean = w.mean(y$earning,y$data.WGT)
-d = wtd.Ecdf(y$earning,y$data.WGT)
-ecdf = ecdf(d$x)
+t1 = data.frame(y$earning,y$income,y$data.NETWORTH,y$data.WGT)
+t1 = t1[order(t1$y.income),]
+t1$a = t1$y.data.WGT/sum(t1$y.data.WGT)
+t1$b = cumsum(t1$a)
+findmean = t1 %>% filter(y.income >= w.mean(t1$y.income,t1$y.data.WGT))
+min(findmean$b)    # incomes
 
-## mean/median
+t1 = data.frame(y$earning,y$income,y$data.NETWORTH,y$data.WGT)
+t1 = t1[order(t1$y.data.NETWORTH),]
+t1$a = t$y.data.WGT/sum(t$y.data.WGT)
+t1$b = cumsum(t1$a)
+findmean = t1 %>% filter(y.data.NETWORTH >= w.mean(t1$y.data.NETWORTH,t1$y.data.WGT))
+min(findmean$b)    # earnings
+
+######################################## mean/median
 w.mean(y$earning,y$data.WGT) / wtd.quantile(y$earning,0.5,weight = y$data.WGT)
 w.mean(y$income,y$data.WGT) / wtd.quantile(y$income,0.5,weight = y$data.WGT)
 w.mean(y$data.NETWORTH,y$data.WGT) / wtd.quantile(y$data.NETWORTH,0.5,weight = y$data.WGT)
@@ -97,7 +130,8 @@ w.mean(y$data.NETWORTH,y$data.WGT) / wtd.quantile(y$data.NETWORTH,0.5,weight = y
 
 
 
-### Lorenz Curves
+########################################## Lorenz Curves
+
 lorenz(y$earning, weighting = y$data.WGT, z = NULL, na.rm = TRUE,
        lcx = "% of objects", lcy = "% of regarded variable", 
        lctitle = "Lorenz curve of earnings", le.col = "blue", lc.col = "black",

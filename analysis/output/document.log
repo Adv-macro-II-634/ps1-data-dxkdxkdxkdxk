@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 SEP 2019 23:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  5 SEP 2019 15:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -648,45 +648,52 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 48.
+(Font)              <10> on input line 56.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 48.
+(Font)              <7> on input line 56.
 
-Overfull \hbox (40.0509pt too wide) in paragraph at lines 50--59
+Overfull \hbox (40.0509pt too wide) in paragraph at lines 58--67
  [][] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 90.
 [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}pdfTeX 
 warning (ext4): destination with the same identifier (name{table.1}) has been a
 lready used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.80 \end{document}
+l.90 \end{document}
                    pdfTeX warning (ext4): destination with the same identifier 
 (name{table.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.80 \end{document}
+l.90 \end{document}
                    ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 90.
  (./document.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
-Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 80.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 90.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 90.
+
+
+Package rerunfilecheck Warning: File `document.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `document.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  EB0443FDCE14C2195403706E90DE9750;144.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 90.
  ) 
 Here is how much of TeX's memory you used:
- 9094 strings out of 492649
- 130605 string characters out of 6129622
+ 9097 strings out of 492649
+ 130632 string characters out of 6129622
  245064 words of memory out of 5000000
  12658 multiletter control sequences out of 15000+600000
  39441 words of font info for 46 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 34i,9n,43p,265b,347s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,9n,43p,265b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2018/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2018/texmf-dist/
@@ -695,10 +702,10 @@ fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
 lm/lmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr7.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local
 /texlive/2018/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on document.pdf (1 page, 119099 bytes).
+Output written on document.pdf (1 page, 121300 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
+ 51 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
