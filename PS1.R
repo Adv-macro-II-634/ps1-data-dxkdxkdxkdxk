@@ -16,3 +16,5 @@ e_quantiles = data.frame(wtd.quantile(y$earining/1000,
 names(e_quantiles)[1] = "quantiles"
 e_quantiles$quantiles = round(e_quantiles$quantiles,digits=2) ### earings quantile table 1
 
+top1_low40 = wtd.quantile(y$earining,q = 0.99,weight = y$data.WGT)/wtd.quantile(y$earining,q = 0.4,weight = y$data.WGT)
+
