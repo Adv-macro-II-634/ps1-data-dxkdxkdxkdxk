@@ -45,15 +45,33 @@
 
 
 \begin{table}[ht]
-	\caption{County average employment, state government, t+5}
+	\caption{Quantiles of the 2007 Earnings, Income, and Wealth Distributions (x 1000
+		2007 USD)}
 	\centering
-	\begin{tabular}{rrrrr}
+	\begin{tabular}{rrrrrrrrrrrrr}
 		\hline
-		& Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+	 Quantiles	&   0\% &   1\% &   5\% &  10\% &  20\% &  40\% &  60\% &  80\% &  90\% &  95\% &  99\% & 100\% \\ 
 		\hline
-		(Intercept) & -1026.0374 & 1030.7099 & -1.00 & 0.3220 \\ 
-		mov & -69.1562 & 170.7385 & -0.41 & 0.6863 \\ 
-		win & 1784.2972 & 1922.9359 & 0.93 & 0.3558 \\ 
+		Earnings & -1576.0 & 0.0 & 0.0 & 0.0 & 0.0 & 26.2 & 51.4 & 89.1 & 128.5 & 183.6 & 506.4 & 164599.0 \\ 
+		Income & -515.4 & 4.3 & 9.1 & 12.6 & 20.4 & 37.0 & 59.9 & 100.6 & 144.7 & 211.2 & 693.6 & 190767.2 \\ 
+		Wealth& -482.7 & -31.9 & -4.70 & 0.0 & 7.5 & 66.2& 201.7& 506.4& 927.6 & 1936.4 & 8534.1 & 1438628.0 \\ 
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+	\caption{Concentration and Skewness of the Distributions}
+	\centering
+	\begin{tabular}{rrrr}
+		\hline
+		  & Earnings & Income & Wealth  \\ 
+		\hline
+		Coefficient of variation & 3.60 &  &   \\ 
+		Variance of the logs &  &  &   \\ 
+		Gini index & 0.64 &  &   \\
+		Top 1\% / lowest 40\%  & & & \\
+		Location of mean (\%) & & & \\
+		Mean / median & 1.72 & & \\
 		\hline
 	\end{tabular}
 \end{table}
